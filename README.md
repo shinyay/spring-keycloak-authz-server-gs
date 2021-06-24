@@ -12,9 +12,9 @@ This is a Keycloak server embedded in a Spring Boot application.
 - com.h2database
   - `h2`
 - org.jboss.resteasy
-  - `resteasy-jackson2-provider`
+  - `resteasy-jackson2-provider:4.6.1.Final`
 - org.keycloak
-  - `keycloak-admin-client`
+  - `keycloak-dependencies-server-all:14.0.0`
 
 ## Demo
 
