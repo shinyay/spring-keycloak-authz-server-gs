@@ -4,6 +4,17 @@ Keycloak is an open-source Identity and Access Management solution.
 This is a Keycloak server embedded in a Spring Boot application.
 
 ## Description
+### Dependency
+- org.springframework.boot
+  - `spring-boot-starter-web`
+  - `spring-boot-starter-actuator`
+  - `spring-boot-starter-data-jpa`
+- com.h2database
+  - `h2`
+- org.jboss.resteasy
+  - `resteasy-jackson2-provider`
+- org.keycloak
+  - `keycloak-admin-client`
 
 ## Demo
 
