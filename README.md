@@ -1,6 +1,7 @@
-# Name
+# Embedded Keycloak Server running in a Spring Boot
 
-Overview
+Keycloak is an open-source Identity and Access Management solution.
+This is a Keycloak server embedded in a Spring Boot application.
 
 ## Description
 
