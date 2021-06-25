@@ -14,7 +14,12 @@ import org.springframework.core.io.Resource
 
 class EmbeddedKeycloakApplication() : KeycloakApplication() {
 
-    lateinit var keycloakServerProperties: KeycloakServerProperties
+    companion object {
+        val keycloakServerProperties: KeycloakServerProperties
+            get() {
+                return keycloakServerProperties
+            }
+    }
     object  KeycloakJsonConfigProviderFactory :  JsonConfigProviderFactory()
 
     override fun loadConfig() {
