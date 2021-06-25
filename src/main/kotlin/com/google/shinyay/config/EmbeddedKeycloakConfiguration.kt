@@ -3,6 +3,7 @@ package com.google.shinyay.config
 import org.jboss.resteasy.plugins.server.servlet.HttpServlet30Dispatcher
 import org.jboss.resteasy.plugins.server.servlet.ResteasyContextParameters
 import org.springframework.boot.web.servlet.ServletRegistrationBean
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import javax.naming.CompositeName
 import javax.naming.InitialContext
@@ -16,6 +17,7 @@ import javax.sql.DataSource
 @Configuration
 class EmbeddedKeycloakConfiguration {
 
+    @Bean
     fun keycloakJaxRsRegistration(
         properties: KeycloakServerProperties,
         datasource: DataSource
