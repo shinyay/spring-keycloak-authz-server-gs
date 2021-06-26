@@ -2,6 +2,7 @@ package com.google.shinyay.config
 
 import org.jboss.resteasy.plugins.server.servlet.HttpServlet30Dispatcher
 import org.jboss.resteasy.plugins.server.servlet.ResteasyContextParameters
+import org.springframework.boot.web.servlet.FilterRegistrationBean
 import org.springframework.boot.web.servlet.ServletRegistrationBean
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -59,5 +60,15 @@ class EmbeddedKeycloakConfiguration {
         servlet.isAsyncSupported = true
 
         return servlet
+    }
+
+    @Bean
+    fun keycloakSessionManagement(keycloakServerProperties: KeycloakServerProperties): FilterRegistrationBean<EmbeddedKeycloakRequestFilter>? {
+        val filter: FilterRegistrationBean<EmbeddedKeycloakRequestFilter> =
+            FilterRegistrationBean<EmbeddedKeycloakRequestFilter>()
+        filter.setName("Keycloak Session Management")
+        filter.filter = EmbeddedKeycloakRequestFilter()
+        filter.addUrlPatterns(keycloakServerProperties.contextPath + "/*")
+        return filter
     }
 }
