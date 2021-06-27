@@ -15,7 +15,12 @@ class SimplePlatformProvider : PlatformProvider {
     }
 
     override fun exit(cause: Throwable?) {
-
+        ServicesLogger.LOGGER.fatal(cause)
+        object : Thread() {
+            override fun run() {
+                exitProcess(1)
+            }
+        }.start()
     }
 
     override fun getTmpDirectory(): File {
