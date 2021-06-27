@@ -13,7 +13,6 @@ import org.springframework.core.io.Resource
 
 
 class EmbeddedKeycloakApplication() : KeycloakApplication() {
-
     companion object {
         val keycloakServerProperties: KeycloakServerProperties
             get() {
