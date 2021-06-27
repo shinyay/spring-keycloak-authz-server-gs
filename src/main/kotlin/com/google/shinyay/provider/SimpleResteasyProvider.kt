@@ -15,11 +15,13 @@ class SimpleResteasyProvider : ResteasyProvider {
         ResteasyProviderFactory.getContextData(Dispatcher::class.java).defaultContextObjects[type] = instance
     }
 
-    override fun pushContext(type: Class<*>?, instance: Any?) {
-        TODO("Not yet implemented")
+    override fun pushContext(type: Class<*>?, instance: Any) {
+        ResteasyProviderFactory.getInstance()
+        ResteasyProviderFactory.pushContext(type, instance)
     }
 
     override fun clearContextData() {
-        TODO("Not yet implemented")
+        ResteasyProviderFactory.getInstance();
+        ResteasyProviderFactory.clearContextData();
     }
 }
