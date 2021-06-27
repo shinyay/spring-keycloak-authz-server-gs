@@ -6,12 +6,16 @@ import java.io.File
 import kotlin.system.exitProcess
 
 class SimplePlatformProvider : PlatformProvider {
+    var tmpDir: File? = null
+    var onStartup: Runnable? = null
+    var onShutdown: Runnable? = null
 
     override fun onStartup(startup: Runnable?) {
         startup?.run()
     }
 
     override fun onShutdown(shutdown: Runnable?) {
+        shutdown?.run()
     }
 
     override fun exit(cause: Throwable?) {
@@ -23,6 +27,5 @@ class SimplePlatformProvider : PlatformProvider {
         }.start()
     }
 
-    override fun getTmpDirectory(): File {
-    }
+    override fun getTmpDirectory(): File? = tmpDir
 }
